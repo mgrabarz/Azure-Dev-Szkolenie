@@ -183,11 +183,11 @@ In this exercise, you created a couple of placeholder containers in the storage 
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **Program.cs** file in the **03\\Solution\\BlobManager** folder.
 
-1.  Observe the output from the currently running console application. The output contains metadata for the Storage account that was retrieved from the service.
+2.  Observe the output from the currently running console application. The output contains metadata for the Storage account that was retrieved from the service.
 
-1.  Close the current terminal.
+3.  Close the current terminal.
 
 #### Task 4: Enumerate the existing containers
 
@@ -222,11 +222,11 @@ In this exercise, you created a couple of placeholder containers in the storage 
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **Program.cs** file in the **03\\Solution\\BlobManager** folder.
 
-1.  Observe the output from the currently running console application. The updated output includes a list of every existing container in the account.
+2.  Observe the output from the currently running console application. The updated output includes a list of every existing container in the account.
 
-1.  Close the current terminal.
+3.  Close the current terminal.
 
 #### Review
 
@@ -340,7 +340,7 @@ In this exercise, you accessed existing containers by using the Storage SDK.
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **Program.cs** file in the **03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The updated output includes metadata about the new container and blobs.
 
@@ -351,7 +351,7 @@ In this exercise, you accessed existing containers by using the Storage SDK.
 1.  Access the **mediastor*[yourname]*** storage account that you created earlier in this lab.
 
 1.  Select the **Containers** link in the **Blob service** section, and then select the newly created **vector-graphics** container.
-1.  In the **vector-graphics** container, select **Upload** to upload the **graph.svg** file in the **Allfiles (F): \\Allfiles\\Labs\\03\\Starter\\Images** folder on your lab VM.
+1.  In the **vector-graphics** container, select **Upload** to upload the **graph.svg** file in the **03\\Starter\\Images** folder on your lab VM.
 
     > **Note**: We recommend that you enable the **Overwrite if files already exist** option.
 
@@ -409,7 +409,7 @@ In this exercise, you accessed existing containers by using the Storage SDK.
     dotnet run
     ```
 
-    > **Note**: If there are any build errors, review the **Program.cs** file in the **Allfiles (F):\\Allfiles\\Labs\\03\\Solution\\BlobManager** folder.
+    > **Note**: If there are any build errors, review the **Program.cs** file in the **03\\Solution\\BlobManager** folder.
 
 1.  Observe the output from the currently running console application. The updated output includes the final URL to access the blob online. Record the value of this URL to use later in the lab.
 
@@ -447,7 +447,7 @@ In this exercise, you created containers and managed blobs by using the Storage 
 
 #### Task 3: Close the active application
 
-1.      the currently running Microsoft Edge application.
+1.       the currently running Microsoft Edge application.
 
 #### Review
 
