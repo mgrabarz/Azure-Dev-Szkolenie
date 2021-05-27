@@ -1,13 +1,4 @@
----
-lab:
-    az204Title: 'Lab 03: Retrieving Azure Storage resources and metadata by using the Azure Storage SDK for .NET'
-    az020Title: 'Lab 03: Retrieving Azure Storage resources and metadata by using the Azure Storage SDK for .NET'
-    az204Module: 'Module 03: Develop solutions that use blob storage'
-    az020Module: 'Module 03: Develop solutions that use blob storage'
----
-
 # Lab 03: Retrieving Azure Storage resources and metadata by using the Azure Storage SDK for .NET
-# Student lab manual
 
 ## Lab scenario
 
@@ -17,35 +8,13 @@ You're preparing to host a web application in Microsoft Azure that uses a combin
 
 After you complete this lab, you will be able to:
 
--   Create containers and upload blobs by using the Azure portal.
+- Create containers and upload blobs by using the Azure portal.
 
--   Enumerate blobs and containers by using the Microsoft Azure Storage SDK for .NET.
+- Enumerate blobs and containers by using the Microsoft Azure Storage SDK for .NET.
 
--   Pull blob metadata by using the Storage SDK.
+- Pull blob metadata by using the Storage SDK.
 
 ## Lab setup
-
--   Estimated time: **45 minutes**
-
-## Instructions
-
-### Before you start
-
-#### Sign in to the lab virtual machine
-
-Ensure that you're signed in to your Windows 10 virtual machine (VM) by using the following credentials:
-    
--   Username: **Admin**
-
--   Password: **Pa55w.rd**
-
-#### Review the installed applications
-
-Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for the applications that you'll use in this lab:
-
--   Microsoft Edge
-
--   File Explorer
 
 ### Exercise 1: Create Azure resources
 
@@ -58,18 +27,18 @@ Find the taskbar on your Windows 10 desktop. The taskbar contains the icons for 
 #### Task 2: Create a Storage account
 
 1.  Create a new storage account with the following details:
-    
-    -    New resource group: **StorageMedia**
 
-    -    Name: **mediastor*[yourname]***
+    - New your resource group
 
-    -    Location: **East US**
+    - Name: **mediastor*[yourname]***
 
-    -    Performance: **Standard**
+    - Location: **East US**
 
-    -    Account kind: **StorageV2 (general purpose v2)**
+    - Performance: **Standard**
 
-    -    Replication: **Read-access geo-redundant storage (RA-GRS)**
+    - Account kind: **StorageV2 (general purpose v2)**
+
+    - Replication: **Read-access geo-redundant storage (RA-GRS)**
 
     > **Note**: Wait for Azure to finish creating the storage account before you move forward with the lab. You'll receive a notification when the account is created.
 
@@ -92,16 +61,16 @@ In this exercise, you created a new Storage account to use throughout the remain
 1.  Access the **mediastor*[yourname]*** storage account that you created earlier in this lab.
 
 1.  Select the **Containers** link in the **Blob service** section, and then create a new container with the following settings:
-    
-    -    Name: **raster-graphics**
 
-    -    Public access level: **Private (no anonymous access)**
+    - Name: **raster-graphics**
+
+    - Public access level: **Private (no anonymous access)**
 
 1.  Select the **Containers** link in the **Blob service** section, and then create a new container with the following settings:
-    
-    -    Name: **compressed-audio**
 
-    -    Public access level: **Private (no anonymous access)**
+    - Name: **compressed-audio**
+
+    - Public access level: **Private (no anonymous access)**
 
 1.  Observe the updated list of containers.
 
@@ -110,10 +79,9 @@ In this exercise, you created a new Storage account to use throughout the remain
 1.  Access the **mediastor*[yourname]*** storage account that you created earlier in this lab.
 
 1.  Select the **Containers** link in the **Blob service** section, and then select the recently created **raster-graphics** container.
-    
-1.  In the **raster-graphics** container, select **Upload** to upload the **graph.jpg** file in the **Allfiles (F): \\Allfiles\\Labs\\03\\Starter\\Images** folder on your lab VM.
+1.  In the **raster-graphics** container, select **Upload** to upload the **graph.jpg** file in the **Allfiles (F): 03\\Starter\\Images** folder on PC.
 
-    > **Note**: We recommend that you enable the **Overwrite if files already exist** option. 
+    > **Note**: We recommend that you enable the **Overwrite if files already exist** option.
 
 #### Review
 
@@ -123,9 +91,9 @@ In this exercise, you created a couple of placeholder containers in the storage 
 
 #### Task 1: Create .NET project
 
-1.  Using Visual Studio Code, open the **Allfiles (F):\\Allfiles\\Labs\\03\\Starter\\BlobManager** folder.
+1.  Using Visual Studio Code, open the **03\\Starter\\BlobManager** folder.
 
-1.  Using a terminal, create a new .NET project named **BlobManager** in the current folder:
+2.  Using a terminal, create a new .NET project named **BlobManager** in the current folder:
 
     ```
     dotnet new console --name BlobManager --output .
@@ -133,7 +101,7 @@ In this exercise, you created a couple of placeholder containers in the storage 
 
     > **Note**: The **dotnet new** command will create a new **console** project in a folder with the same name as the project.
 
-1.  Using the same terminal, import version 12.0.0 of **Azure.Storage.Blobs** from NuGet:
+3.  Using the same terminal, import version 12.0.0 of **Azure.Storage.Blobs** from NuGet:
 
     ```
     dotnet add package Azure.Storage.Blobs --version 12.0.0
@@ -141,13 +109,13 @@ In this exercise, you created a couple of placeholder containers in the storage 
 
     > **Note**: The **dotnet add package** command will add the **Azure.Storage.Blobs** package from NuGet. For more information, go to [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs/12.0.0).
 
-1.  Using the same terminal, build the .NET web application:
+4.  Using the same terminal, build the .NET web application:
 
     ```
     dotnet build
     ```
 
-1.  Close the current terminal.
+5.  Close the current terminal.
 
 #### Task 2: Modify the Program class to access Storage
 
@@ -173,7 +141,7 @@ In this exercise, you created a couple of placeholder containers in the storage 
         private const string blobServiceEndpoint = "";
         private const string storageAccountName = "";
         private const string storageAccountKey = "";
-        
+
         public static async Task Main(string[] args)
         {
         }
@@ -227,7 +195,7 @@ In this exercise, you created a couple of placeholder containers in the storage 
 
     ```
     private static async Task EnumerateContainersAsync(BlobServiceClient client)
-    {        
+    {
     }
     ```
 
@@ -240,7 +208,7 @@ In this exercise, you created a couple of placeholder containers in the storage 
     }
     ```
 
-1.  In the **Main** method, add a new line of code to invoke the **EnumerateContainersAsync** method, passing in the *serviceClient* variable as a parameter:
+1.  In the **Main** method, add a new line of code to invoke the **EnumerateContainersAsync** method, passing in the _serviceClient_ variable as a parameter:
 
     ```
     await EnumerateContainersAsync(serviceClient);
@@ -262,7 +230,7 @@ In this exercise, you created a couple of placeholder containers in the storage 
 
 #### Review
 
-In this exercise, you accessed existing containers by using the Storage SDK. 
+In this exercise, you accessed existing containers by using the Storage SDK.
 
 ### Exercise 4: Retrieve blob Uniform Resource Identifiers (URIs) by using the .NET SDK
 
@@ -272,7 +240,7 @@ In this exercise, you accessed existing containers by using the Storage SDK.
 
     ```
     private static async Task EnumerateBlobsAsync(BlobServiceClient client, string containerName)
-    {      
+    {
     }
     ```
 
@@ -297,13 +265,13 @@ In this exercise, you accessed existing containers by using the Storage SDK.
     }
     ```
 
-1.  In the **Main** method, add a new line of code to create a variable named *existingContainerName* with a value of **raster-graphics**:
+1.  In the **Main** method, add a new line of code to create a variable named _existingContainerName_ with a value of **raster-graphics**:
 
     ```
     string existingContainerName = "raster-graphics";
     ```
 
-1.  In the **Main** method, add a new line of code to invoke the **EnumerateBlobsAsync** method, passing in the *serviceClient* and *existingContainerName* variables as parameters:
+1.  In the **Main** method, add a new line of code to invoke the **EnumerateBlobsAsync** method, passing in the _serviceClient_ and _existingContainerName_ variables as parameters:
 
     ```
     await EnumerateBlobsAsync(serviceClient, existingContainerName);
@@ -329,7 +297,7 @@ In this exercise, you accessed existing containers by using the Storage SDK.
 
     ```
     private static async Task<BlobContainerClient> GetContainerAsync(BlobServiceClient client, string containerName)
-    {      
+    {
     }
     ```
 
@@ -350,15 +318,15 @@ In this exercise, you accessed existing containers by using the Storage SDK.
 
     ```
     return container;
-    ``` 
-    
-1.  In the **Main** method, add a new line of code to create a variable named *newContainerName* with a value of **vector-graphics**:
+    ```
+
+1.  In the **Main** method, add a new line of code to create a variable named _newContainerName_ with a value of **vector-graphics**:
 
     ```
     string newContainerName = "vector-graphics";
     ```
 
-1.  In the **Main** method, add a new line of code to invoke the **GetContainerAsync** method, passing in the *serviceClient* and *newContainerName* variables as parameters:
+1.  In the **Main** method, add a new line of code to invoke the **GetContainerAsync** method, passing in the _serviceClient_ and _newContainerName_ variables as parameters:
 
     ```
     BlobContainerClient containerClient = await GetContainerAsync(serviceClient, newContainerName);
@@ -383,10 +351,9 @@ In this exercise, you accessed existing containers by using the Storage SDK.
 1.  Access the **mediastor*[yourname]*** storage account that you created earlier in this lab.
 
 1.  Select the **Containers** link in the **Blob service** section, and then select the newly created **vector-graphics** container.
-    
 1.  In the **vector-graphics** container, select **Upload** to upload the **graph.svg** file in the **Allfiles (F): \\Allfiles\\Labs\\03\\Starter\\Images** folder on your lab VM.
 
-    > **Note**: We recommend that you enable the **Overwrite if files already exist** option. 
+    > **Note**: We recommend that you enable the **Overwrite if files already exist** option.
 
 #### Task 4: Access blob URI by using the SDK
 
@@ -394,7 +361,7 @@ In this exercise, you accessed existing containers by using the Storage SDK.
 
     ```
     private static async Task<BlobClient> GetBlobAsync(BlobContainerClient client, string blobName)
-    {      
+    {
     }
     ```
 
@@ -414,21 +381,21 @@ In this exercise, you accessed existing containers by using the Storage SDK.
 
     ```
     return blob;
-    ```  
-    
-1.  In the **Main** method, add a new line of code to create a variable named *uploadedBlobName* with a value of **vector-graphics**:
+    ```
+
+1.  In the **Main** method, add a new line of code to create a variable named _uploadedBlobName_ with a value of **vector-graphics**:
 
     ```
     string uploadedBlobName = "graph.svg";
     ```
 
-1.  In the **Main** method, add a new line of code to invoke the **GetBlobAsync** method, passing in the *containerClient* and *uploadedBlobName* variables as parameters and store the result in a variable named *blobClient* of type **BlobClient**:
+1.  In the **Main** method, add a new line of code to invoke the **GetBlobAsync** method, passing in the _containerClient_ and _uploadedBlobName_ variables as parameters and store the result in a variable named _blobClient_ of type **BlobClient**:
 
     ```
     BlobClient blobClient = await GetBlobAsync(containerClient, uploadedBlobName);
     ```
 
-1.  In the **Main** method, add a new line of code to render the **Uri** property of the *blobClient* variable:
+1.  In the **Main** method, add a new line of code to render the **Uri** property of the _blobClient_ variable:
 
     ```
     await Console.Out.WriteLineAsync($"Blob Url:\t{blobClient.Uri}");
@@ -449,18 +416,18 @@ In this exercise, you accessed existing containers by using the Storage SDK.
     > **Note**: The URL will likely be similar to the following string: **https://mediastor*[yourname]*.blob.core.windows.net/vector-graphics/graph.svg**
 
 1.  Close the current terminal.
-    
+
 #### Task 5: Test the URI by using a browser
 
-1.  Using a new browser window or tab, go to the URL for the blob, and then find the blob's contents. 
+1.  Using a new browser window or tab, go to the URL for the blob, and then find the blob's contents.
 
 1.  You should now notice the Scalable Vector Graphics (SVG) file in your browser window.
 
 #### Review
 
-In this exercise, you created containers and managed blobs by using the Storage SDK. 
+In this exercise, you created containers and managed blobs by using the Storage SDK.
 
-### Exercise 5: Clean up your subscription 
+### Exercise 5: Clean up your subscription
 
 #### Task 1: Open Azure Cloud Shell and list resource groups
 
@@ -475,12 +442,12 @@ In this exercise, you created containers and managed blobs by using the Storage 
     ```
     az group delete --name StorageMedia --no-wait --yes
     ```
-    
+
 1.  Close the Cloud Shell pane in the portal.
 
 #### Task 3: Close the active application
 
-1.     the currently running Microsoft Edge application.
+1.      the currently running Microsoft Edge application.
 
 #### Review
 
